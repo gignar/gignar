@@ -527,6 +527,17 @@ a.pagination-item:hover {
   color: #8f5536;
 }
 
+/* Lick Pink */
+.theme-base-lick .sidebar,
+.theme-base-lick .sidebar-toggle:active,
+.theme-base-lick #sidebar-checkbox:checked ~ .sidebar-toggle {
+  background-color: #16263C;
+}
+.theme-base-lick .container a,
+.theme-base-lick .sidebar-toggle,
+.theme-base-lick .related-posts li a:hover {
+  color: #ED0971;
+
 
 /*
  * Overlay sidebar
