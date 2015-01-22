@@ -4,7 +4,7 @@
 		{% if site.theme.gravatar %}
 		<img class="avatar" src="http://www.gravatar.com/avatar/{{ site.theme.gravatar }}?s=100" alt=""/>
 		{% else if site.theme.avatar %}
-        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}"><img class="avatar" src="/img/{{ site.theme.avatar }}" alt=""/></a>
+        <a href="{{ site.baseurl }}/"><img class="avatar" src="/img/{{ site.theme.avatar }}" alt=""/></a>
 		{% endif %}
 		
 		<h1 class="site-title">
