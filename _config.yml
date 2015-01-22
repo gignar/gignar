@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://example.com" # the base hostname & protocol for your site
+url: "http://oliverjam.es" # the base hostname & protocol for your site
 
 # THEME-SPECIFIC CONFIGURATION
 theme:
@@ -8,13 +8,12 @@ theme:
   title: Type Theme
   avatar: avatar.png
   gravatar: # email md5 hash
-  description: "A website with blog posts, and pages." # used by search engines
+  description: "A website with blog posts and pages." # used by search engines
   
   # Header and footer text
   header_text: >
      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
      
-     <p>Remove all header text in <code>_config.yml</code> to disable this feature.</p>
   footer_text: >
    Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type.html">Type Theme</a>
   
@@ -26,7 +25,7 @@ theme:
   dribbble: 
   facebook: 
   flickr: 
-  github: "rohanchandra/type-theme"
+  github: "gignar"
   google_plus: 
   instagram: 
   linkedin:  # full URL
@@ -36,7 +35,7 @@ theme:
   stack_exchange:  # full URL
   steam: 
   tumblr: 
-  twitter: "twitter"
+  twitter:
   wordpress: 
   youtube: 
   
