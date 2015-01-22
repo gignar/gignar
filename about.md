@@ -1,14 +1,12 @@
 ---
 layout: page
 title: About
+permalink: /about/
+feature-img: "img/sample_feature_img_2.png"
 ---
 
-<p class="lead">
+Type Theme is a free and open-source theme for [Jekyll](http://jekyllrb.com/), licensed under the MIT License.
 
-We are Lick Innovation.
+Head over to the theme's Github repo for much more information about Type Theme or to install this theme for your very own Jekyll site.
 
-</p>
-
-A team that sits within [Lick Creative](http://www.lickcreative.com) to help bring incredible new technologies and solutions to our clients (and our own  teams too!).
-
-This blog is our attempt at sharing some of the brilliant stuff we see on a daily basis with anyone who'll listen. It will include a mixture of our own projects, great work done by others and pretty much anything we find inspirational.
+This file is an example of a page in Jekyll, that automatically shows up in the header navigation, you can delete or modify this file freely.
