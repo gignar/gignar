@@ -24,7 +24,6 @@
     }
   &__link {
     position: relative;
-    text-decoration: none;
     color: currentColor;
     transition: transform 0.25s ease;
     @include mq-md {
@@ -42,13 +41,16 @@
         transform: translateY(1rem) rotate(-2deg);
         transform-origin: left;
       }
-      &:hover, &:focus {
-        outline: none;
+      &:hover {
         &:before {
           opacity: 1;
           transform: translateY(0) rotate(-2deg)
         }
       }
+      &:focus {
+        outline: none;
+        color: currentColor;
     }
   }
+}
 }
