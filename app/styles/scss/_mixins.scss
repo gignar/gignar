@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-@mixin stripe {
+@mixin stripes {
   &:after {
     position: absolute;
     content: '';
@@ -46,7 +46,7 @@
     bottom: -10%;
     right: -2.5%;
     width: 55%;
-    height: 40%;
+    height: 35%;
     // background:
     //   linear-gradient(
     //   to left,
