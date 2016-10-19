@@ -1,0 +1,45 @@
+.sidebar {
+  position: fixed;
+  height: 100%;
+  height: 100vh;
+  padding: $space-lg;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: $text-light;
+  background:
+    radial-gradient(
+      circle at top left,
+      darken($secondary, 5%),
+      $secondary 60%,
+      $primary
+    ), $secondary;
+    background: $secondary;
+    font-family: $ff-serif;
+    line-height: 1.2;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  @include mq-md {
+    width: $sidebar-width;
+    padding: $space-md;
+    text-align: left;
+    box-shadow: 2px 0 2px rgba($grey-700, 0.5);
+  }
+  @include mq-lg {
+    padding: $space-lg;
+    font-size: 1.25em;
+  }
+  &__title {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: flex-start;
+    position: relative;
+    font-size: 2.25em;
+    @include stripe;
+    @include mq-md {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

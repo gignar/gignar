@@ -1,0 +1,10 @@
+.card-list {
+  list-style: none;
+}
+
+.card {
+  &__date {
+    font-size: $font-scale-xs;
+    color: $grey-400
+  }
+}

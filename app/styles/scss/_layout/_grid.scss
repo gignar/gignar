@@ -1,0 +1,12 @@
+.grid {
+  margin: 0;
+  display: flex;
+  flex-flow: wrap;
+  &__item {
+    &--half {
+      @include mq-md {
+        flex: 1 0 50%;
+      }
+    }
+  }
+}

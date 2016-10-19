@@ -1,0 +1,45 @@
+// Base palette
+$white:    hsl(30, 30, 96);
+$blue-700: hsl(205, 90, 17);
+$blue-400: hsl(205, 90, 35);
+$pink-400: hsl(330, 95, 60);
+$gold-400: hsl(45, 90, 45);
+$grey-100: hsl(220, 10, 80);
+$grey-400: hsl(220, 10, 50);
+$grey-700: hsl(220, 10, 20);
+
+$primary: $pink-400;
+$secondary: $blue-700;
+$tertiary: $blue-400;
+
+// UI Colours
+$text-dark: $grey-700;
+$text-light: $white;
+$bg-dark: $secondary;
+$bg-light: $white;
+
+// Font
+$scale: 1.333;
+$base-font-size: 1.125em;
+$font-scale-xs: ($base-font-size / $scale);
+$font-scale-sm: ($base-font-size);
+$font-scale-md: ($base-font-size * $scale);
+$font-scale-lg: ($base-font-size * ($scale * $scale));
+$font-scale-xl: ($base-font-size * ($scale * $scale * $scale));
+$ff-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$ff-serif: 'Averia Serif Libre', 'Libre Baskerville', Baskerville, Georgia, serif;
+$line-height: 1.4;
+
+// Layout
+$mq-sm: 30em;
+$mq-md: 40em;
+$mq-lg: 60em;
+
+$site-width: 40rem;
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+$space-xl: 3rem;
+
+$sidebar-width: 40%;
