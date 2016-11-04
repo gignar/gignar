@@ -31,6 +31,8 @@ import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import svgSprite from 'gulp-svg-sprite';
+
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
 
@@ -54,6 +56,33 @@ gulp.task('images', () =>
     })))
     .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}))
+);
+
+// Create SVG sprite
+gulp.task('sprite-page', () =>
+  gulp.src('app/svg/**/*.svg')
+    .pipe(svgSprite(
+      {
+        mode: {
+          symbol: { // symbol mode to build the SVG
+            render: {
+              css: false, // CSS output option for icon sizing
+              scss: false, // SCSS output option for icon sizing
+            },
+            dest: 'sprite', // destination folder
+            prefix: '.svg--%s', // BEM-style prefix if styles rendered
+            sprite: 'sprite.svg', // Generated sprite name
+            example: true, // Build a sample page, please!
+          },
+        },
+      }
+    ))
+    .pipe(gulp.dest('app'))
+);
+
+gulp.task('sprite-shortcut', () =>
+  gulp.src('sprite.svg')
+    .pipe(gulp.dest('app'))
 );
 
 // Copy all files at the root level (app)
