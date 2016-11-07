@@ -69,10 +69,10 @@ gulp.task('sprite-page', () =>
               css: false, // CSS output option for icon sizing
               scss: false, // SCSS output option for icon sizing
             },
-            dest: 'sprite', // destination folder
+            dest: '', // destination folder
             prefix: '.svg--%s', // BEM-style prefix if styles rendered
             sprite: 'sprite.svg', // Generated sprite name
-            example: true, // Build a sample page, please!
+            example: false, // Build a sample page, please!
           },
         },
       }
@@ -80,17 +80,18 @@ gulp.task('sprite-page', () =>
     .pipe(gulp.dest('app'))
 );
 
-gulp.task('sprite-shortcut', () =>
-  gulp.src('sprite.svg')
-    .pipe(gulp.dest('app'))
-);
+// gulp.task('sprite-shortcut', () =>
+//   gulp.src('sprite/sprite.svg')
+//     .pipe(gulp.dest('dist'))
+// );
 
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
   gulp.src([
     'app/*',
     '!app/*.html',
-    'node_modules/apache-server-configs/dist/.htaccess'
+    'node_modules/apache-server-configs/dist/.htaccess',
+    // 'app/sprite/sprite.svg'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
@@ -224,7 +225,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['lint', 'html', 'scripts', 'images', 'sprite-page', 'copy'],
     'generate-service-worker',
     cb
   )
