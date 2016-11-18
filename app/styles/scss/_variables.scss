@@ -1,5 +1,5 @@
 // Base palette
-$white:    hsl(220, 20, 96);
+$white:    hsl(220, 20, 98);
 $blue-700: hsl(205, 90, 17);
 $blue-400: hsl(205, 90, 35);
 $pink-400: hsl(330, 95, 60);
@@ -14,13 +14,14 @@ $tertiary: $blue-400;
 
 // UI Colours
 $text-dark: $grey-700;
+$text-dark: $secondary;
 $text-light: $white;
 $bg-dark: $secondary;
 $bg-light: $white;
 
 // Font
 $scale: 1.333;
-$base-font-size: 1.125em;
+$base-font-size: 1em;
 $font-scale-xs: ($base-font-size / $scale);
 $font-scale-sm: ($base-font-size);
 $font-scale-md: ($base-font-size * $scale);
@@ -43,3 +44,4 @@ $space-lg: 2rem;
 $space-xl: 3rem;
 
 $sidebar-width: 40%;
+$sidebar-width-max: 30rem;
