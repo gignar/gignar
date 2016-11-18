@@ -42,6 +42,7 @@
         transform-origin: left;
       }
       &:hover {
+        color: inherit;
         &:before {
           opacity: 1;
           transform: translateY(0) rotate(-2deg)
