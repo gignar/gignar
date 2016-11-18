@@ -43,6 +43,7 @@ a {
   color: inherit;
   text-decoration: none;
   border: 2px solid transparent;
+  transition: color 0.2s;
   &:hover {
     color: $primary;
     outline: none;
@@ -56,13 +57,20 @@ a {
   @include mq-md {
     margin-left: $sidebar-width;
   }
+  @include mq-lg {
+    margin-left: $sidebar-width-max;
+  }
 }
 
 .wrapper {
   // max-width: $site-width;
   margin-left: auto;
   margin-right: auto;
-  padding: $space-lg;
+  padding: $space-md;
+  @include mq-md {
+    padding: $space-xl;
+    max-width: 40em;
+  }
 }
 
 .icon {
