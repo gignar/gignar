@@ -1,23 +1,23 @@
 .card-list {
-  margin-left: ($space-md * -1);
+  // margin-left: ($space-md * -1);
   margin-top: ($space-md * -1);
   list-style: none;
   display: flex;
   flex-flow: wrap;
+  @include mq-lg {
+    // margin-left: ($space-lg * -1);
+    margin-top: ($space-lg * -1);
+  }
   &__item {
-    margin-left: $space-md;
-    margin-top: $space-md;
+    // padding-left: $space-md;
+    padding-top: $space-md;
     display: flex;
     flex-flow: column;
     flex: 1 0 100%;
-    &:nth-child(even) {
-      border-left: $space-sm solid $tertiary;
-    }
-    &:nth-child(odd) {
-      border-left: $space-sm solid $primary;
-    }
     @include mq-lg {
-      flex: 1 0 calc(50% - #{$space-md});
+      // padding-left: $space-lg;
+      padding-top: $space-lg;
+      // flex: 1 0 50%;
     }
   }
 }
@@ -28,9 +28,42 @@
   flex-flow: column;
   flex: 1 0 auto;
   align-items: flex-start;
+  background: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px rgba($grey-700, 0.1), 0 1px 5px 0 rgba($grey-700, 0.1);
+  &__image {
+    width: 100%;
+  }
   &__footer {
     margin-top: auto;
     text-align: right;
+  }
+  &__date {
+    font-size: $font-scale-xs;
+    color: $grey-400
+  }
+}
+
+.media {
+  padding: $space-sm;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 2px 2px rgba($grey-700, 0.1), 0 1px 5px 0 rgba($grey-700, 0.1);
+  @include mq-md {
+    padding: $space-lg;
+  }
+  &__img {
+    align-self: center;
+    border-radius: 50%;
+    margin-right: $space-sm;
+    @include mq-md {
+      margin-right: $space-md;
+    }
+  }
+  &__body {
+  }
+  &__footer {
   }
   &__date {
     font-size: $font-scale-xs;
