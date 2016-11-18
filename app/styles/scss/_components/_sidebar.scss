@@ -21,6 +21,7 @@
     box-shadow: 3px 0 4px 1px rgba($grey-700, 0.5);
   }
   @include mq-lg {
+    max-width: $sidebar-width-max;
     padding: $space-lg;
     font-size: 1.25em;
   }
@@ -31,6 +32,7 @@
     margin-right: auto;
     align-self: flex-start;
     white-space: nowrap;
+    text-shadow: 1px 1px 1px $grey-700;
     z-index: 10;
     @include stripes;
     @include mq-md {
