@@ -32,13 +32,13 @@
     <meta name="theme-color" content="#2F3BA2">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans:400,400i,700|Roboto+Mono" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <header class="sidebar space-lg">
+    <header class="sidebar js-sidebar--open space-md">
       <h1 class="sidebar__title">Oliver James</h1>
       <p class="sidebar__content">Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.</p>
       <nav class="nav">
@@ -86,22 +86,32 @@
           <ul class="card-list">
             <li class="card-list__item">
               <article class="media">
-                <img src="http://placehold.it/80x80" alt="" class="media__img">
+                <div class="media__img">
+                  <svg class="icon icon--line" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+                      <path d="M10 9 L3 17 10 25 M22 9 L29 17 22 25 M18 7 L14 27"></path>
+                  </svg>
+                </div>
                 <div class="media__body">
-                  <h3 class="media__title">A nice title</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi iusto, eveniet consequuntur.</p>
+                  <a href="/posts/test-post.html">
+                    <h3 class="media__title">How to create a Ken Burns hero image effect in CSS &amp; Javascript</h3>
+                  </a>
+                  <p>This is part of a series covering each aspect of the website I built for Lick Creative this summer. The rest of the series can be found here.</p>
                   <footer class="media__footer">
-                    <time class="media__date" datetime="2016-10-19">Oct 19, 2016</time>
+                    <time class="media__date" datetime="2016-10-19">Nov 21, 2016</time>
                   </footer>
                 </div>
               </article>
             </li>
             <li class="card-list__item">
               <article class="media">
-                <img src="http://placehold.it/80x80" alt="" class="media__img">
+                <div class="media__img">
+                  <svg class="icon icon--line" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+                    <path d="M16 7 C16 7 9 1 2 6 L2 28 C9 23 16 28 16 28 16 28 23 23 30 28 L30 6 C23 1 16 7 16 7 Z M16 7 L16 28"></path>
+                </svg>
+                </div>
                 <div class="media__body">
                   <h3 class="media__title">You'll never believe how long some of our titles can get</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed accusantium sequi officia.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed accusantium sequi officia. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit.</p>
                   <footer class="media__footer">
                     <time class="media__date" datetime="2016-10-19">Oct 19, 2016</time>
                   </footer>
@@ -109,34 +119,9 @@
               </article>
             </li>
           </ul>
-          <!-- <ul class="card-list">
-            <li class="card-list__item">
-              <article class="card space-md">
-                <a href="#" class="card__link">
-                  <h3 class="card__title">A cool post</h3>
-                </a>
-                <img src="http://placehold.it/500x300" alt="" class="card__image">
-                <p class="card__content">Lorem ipsum dolor sit amet, consectetur.</p>
-                <footer class="card__footer">
-                  <time class="card__date" datetime="2016-10-19">Oct 19, 2016</time>
-                </footer>
-              </article>
-            </li>
-            <li class="card-list__item">
-              <article class="card space-md">
-                <a href="#" class="card__link">
-                  <h3 class="card__title">I'm sure I'll be writing lots of blogs</h3>
-                </a>
-                <img src="http://placehold.it/500x300" alt="" class="card__image">
-                <p class="card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, ipsum! Lorem ipsum dolor sit amet, consectetur.</p>
-                <footer class="card__footer">
-                  <time class="card__date" datetime="2016-10-19">Oct 19, 2016</time>
-                </footer>
-              </article>
-            </li>
-          </ul> -->
         </section>
       </p>
+    </div>
     </main>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
