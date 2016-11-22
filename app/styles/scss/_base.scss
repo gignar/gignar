@@ -40,12 +40,9 @@ h4    { font-size: $font-scale-sm; }
 small { font-size: $font-scale-xs; }
 
 a {
-  color: $primary;
+  color: inherit;
   text-decoration: none;
-  // border: 2px solid transparent;
-  transition: color 0.2s;
   &:hover {
-    color: $tertiary;
     outline: none;
   }
   &:focus:not(:hover) {
@@ -97,6 +94,28 @@ code {
   @include mq-lg {
     padding: $space-xl;
     font-size: 1.25em;
+  }
+  & a {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 5px;
+      background: $primary;
+      z-index: -10;
+      transform: rotate(-1deg);
+      transition: all 0.1s;
+    }
+    &:hover, &:focus {
+      color: $primary;
+      &::after {
+        transform: rotate(-1deg) translateY($space-xs);
+        opacity: 0;
+      }
+    }
   }
 }
 
