@@ -84,10 +84,13 @@
   border-radius: 2px;
   box-shadow: 0 1px 1px rgba($grey-900, 0.4), 0 2px 5px 0 rgba($grey-900, 0.25);
   z-index: 100;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Disable mobile tap outline
+  -webkit-tap-highlight-color: transparent; // Disable mobile tap outline
   transition: all 0.1s;
   @include mq-md {
     display: none;
+  }
+  &:focus {
+    outline-color: $primary;
   }
   &:focus:hover {
     outline: none;
