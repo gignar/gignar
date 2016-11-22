@@ -26,6 +26,12 @@
     position: relative;
     color: currentColor;
     transition: transform 0.25s ease;
+    &--icon {
+      display: block;
+      width: $space-xl;
+      height: $space-xl;
+      color: $white;
+    }
     @include mq-md {
       &:before {
         position: absolute;
