@@ -40,16 +40,16 @@ h4    { font-size: $font-scale-sm; }
 small { font-size: $font-scale-xs; }
 
 a {
-  color: inherit;
+  color: $primary;
   text-decoration: none;
   // border: 2px solid transparent;
   transition: color 0.2s;
   &:hover {
-    color: $primary;
+    color: $tertiary;
     outline: none;
   }
   &:focus:not(:hover) {
-    outline: 6px dashed $tertiary;
+    outline: 5px dashed $tertiary;
   }
 }
 
@@ -103,6 +103,8 @@ code {
 .icon {
   width: $space-xl;
   height: $space-xl;
+  width: 100%;
+  height: 100%;
   fill: currentColor;
   &--line {
     fill: none;
