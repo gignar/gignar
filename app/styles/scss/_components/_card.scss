@@ -51,17 +51,36 @@
   background: #fff;
   box-shadow: 0 2px 2px rgba($grey-700, 0.1), 0 1px 5px 0 rgba($grey-700, 0.1);
   @include mq-md {
+    padding: $space-md;
+  }
+  @include mq-lg {
     padding: $space-lg;
   }
   &__img {
-    align-self: center;
-    border-radius: 50%;
     margin-right: $space-sm;
+    padding: $space-sm;
+    width: $space-xl;
+    height: $space-xl;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    color: $white;
+    border-radius: 50%;
+    background: $tertiary;
     @include mq-md {
+      width: $space-xl;
+      height: $space-xl;
       margin-right: $space-md;
+    }
+    @include mq-lg {
+      width: auto;
+      height: auto;
+      padding: $space-md;
     }
   }
   &__body {
+    font-size: 1rem;
+    line-height: $line-height;
   }
   &__footer {
   }
