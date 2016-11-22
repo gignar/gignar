@@ -1,6 +1,11 @@
 // * + * {
 //   margin-top: $space-md;
 // }
+::selection {
+  color: $white;
+  background: $tertiary;
+  text-shadow: none;
+}
 
 .space-md {
   & > * + * {
@@ -96,25 +101,12 @@ code {
     font-size: 1.25em;
   }
   & a {
-    position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 5px;
-      background: $primary;
-      z-index: -10;
-      transform: rotate(-1deg);
-      transition: all 0.1s;
-    }
+    // text-decoration: underline;
+    // text-decoration-skip: ink;
+    border-bottom: 1px solid;
     &:hover, &:focus {
-      color: $primary;
-      &::after {
-        transform: rotate(-1deg) translateY($space-xs);
-        opacity: 0;
-      }
+      // text-decoration-style: wavy;
+      border-bottom-style: dashed;
     }
   }
 }
