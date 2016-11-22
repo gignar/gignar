@@ -31,6 +31,10 @@
       width: $space-xl;
       height: $space-xl;
       color: $white;
+      transition: color 0.2s;
+      &:hover {
+        color: $tertiary;
+      }
     }
     @include mq-md {
       &:before {
