@@ -21,7 +21,7 @@
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Web Starter Kit">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <!-- <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"> -->
 
     <!-- Apple icons and add-to-homescreen config -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -62,21 +62,21 @@
       <nav class="nav">
         <ul class="nav__list nav__list--row">
           <li class="nav__item">
-            <a href="https://twitter.com/_oliverjam">
+            <a class="nav__link--icon" href="https://twitter.com/_oliverjam">
               <svg class="icon">
                 <use xlink:href="sprite.svg#twitter"></use>
               </svg>
             </a>
           </li>
           <li class="nav__item">
-            <a href="https://github.com/oliverjam">
+            <a class="nav__link--icon" href="https://github.com/oliverjam">
               <svg class="icon">
                 <use xlink:href="sprite.svg#github"></use>
               </svg>
             </a>
           </li>
           <li class="nav__item">
-            <a href="mailto:op@oliverjam.es">
+            <a class="nav__link--icon" href="mailto:op@oliverjam.es">
               <svg class="icon">
                 <use xlink:href="sprite.svg#email"></use>
               </svg>
@@ -93,8 +93,8 @@
             <li class="card-list__item">
               <article class="media">
                 <div class="media__img">
-                  <svg class="icon icon--line" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                      <path d="M10 9 L3 17 10 25 M22 9 L29 17 22 25 M18 7 L14 27"></path>
+                  <svg class="icon icon--line">
+                    <use xlink:href="/sprite.svg#code"></use>
                   </svg>
                 </div>
                 <div class="media__body">
@@ -111,9 +111,9 @@
             <li class="card-list__item">
               <article class="media">
                 <div class="media__img">
-                  <svg class="icon icon--line" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                    <path d="M16 7 C16 7 9 1 2 6 L2 28 C9 23 16 28 16 28 16 28 23 23 30 28 L30 6 C23 1 16 7 16 7 Z M16 7 L16 28"></path>
-                </svg>
+                  <svg class="icon icon--line">
+                    <use xlink:href="/sprite.svg#book"></use>
+                  </svg>
                 </div>
                 <div class="media__body">
                   <h3 class="media__title">You'll never believe how long some of our titles can get</h3>

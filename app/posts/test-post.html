@@ -21,7 +21,7 @@
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Web Starter Kit">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <!-- <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"> -->
 
     <!-- Apple icons and add-to-homescreen config -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -62,21 +62,21 @@
       <nav class="nav">
         <ul class="nav__list nav__list--row">
           <li class="nav__item">
-            <a href="https://twitter.com/_oliverjam">
+            <a class="nav__link--icon" href="https://twitter.com/_oliverjam">
               <svg class="icon">
                 <use xlink:href="/sprite.svg#twitter"></use>
               </svg>
             </a>
           </li>
           <li class="nav__item">
-            <a href="https://github.com/oliverjam">
+            <a class="nav__link--icon" href="https://github.com/oliverjam">
               <svg class="icon">
                 <use xlink:href="/sprite.svg#github"></use>
               </svg>
             </a>
           </li>
           <li class="nav__item">
-            <a href="mailto:op@oliverjam.es">
+            <a class="nav__link--icon" href="mailto:op@oliverjam.es">
               <svg class="icon">
                 <use xlink:href="/sprite.svg#email"></use>
               </svg>
@@ -85,7 +85,11 @@
         </ul>
       </nav>
     </header>
-    <button class="sidebar-toggle"><svg class="i-menu" viewBox="0 0 32 32" width="64" height="64" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path></svg></button>
+    <button class="sidebar-toggle">
+      <svg class="icon">
+        <use xlink:href="/sprite.svg#menu"></use>
+      </svg>
+    </button>
     <main class="main" id="main">
       <div class="wrapper space-md">
         <h1>How to create a Ken Burns hero image effect in CSS &amp; Javascript</h1>
