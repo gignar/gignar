@@ -1,0 +1,50 @@
+// Base palette
+$white:    hsl(220, 20, 98);
+$blue-700: hsl(205, 90, 17);
+$blue-400: hsl(205, 100, 45);
+$pink-400: hsl(335, 95, 60);
+$gold-400: hsl(45, 90, 45);
+$grey-100: hsl(220, 10, 80);
+$grey-400: hsl(220, 10, 50);
+$grey-700: hsl(220, 10, 20);
+$grey-900: hsl(220, 10, 10);
+
+$primary: $pink-400;
+$secondary: $blue-700;
+$tertiary: $blue-400;
+
+// UI Colours
+$text-dark: $grey-700;
+$text-dark: $secondary;
+$text-light: $white;
+$bg-dark: $secondary;
+$bg-light: $white;
+
+// Font
+$scale: 1.333;
+$base-font-size: 1em;
+$font-scale-xs: ($base-font-size / $scale);
+$font-scale-sm: ($base-font-size);
+$font-scale-md: ($base-font-size * $scale);
+$font-scale-lg: ($base-font-size * ($scale * $scale));
+$font-scale-xl: ($base-font-size * ($scale * $scale * $scale));
+$ff-sans: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+$ff-serif: 'Bitter', 'Libre Baskerville', Baskerville, Georgia, serif;
+$ff-mono: 'Roboto Mono', monospace;
+$line-height: 1.3;
+$line-height-lg: 1.5;
+
+// Layout
+$mq-sm: 30em;
+$mq-md: 40em;
+$mq-lg: 70em;
+
+$wrapper-width: 55rem;
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+$space-xl: 3rem;
+
+$sidebar-width: 40%;
+$sidebar-width-max: 30rem;

@@ -1,0 +1,18 @@
+.callout {
+  position: relative;
+  padding: $space-md;
+  display: flex;
+  align-items: center;
+  font-size: $font-scale-xs;
+  line-height: 1.2;
+  color: $white;
+  background: $tertiary;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba($grey-900, 0.4), 0 2px 4px rgba($grey-900, 0.2);
+  &__img {
+    width: $space-lg;
+    height: $space-lg;
+    margin-right: $space-md;
+    flex: 0 0 auto;
+  }
+}

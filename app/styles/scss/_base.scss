@@ -1,0 +1,123 @@
+// * + * {
+//   margin-top: $space-md;
+// }
+::selection {
+  color: $white;
+  background: $tertiary;
+  text-shadow: none;
+}
+
+.space-md {
+  & > * + * {
+    margin-top: 1em;
+  }
+}
+
+.space-lg {
+  & > * + * {
+    margin-top: 2em;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: $ff-sans;
+  font-size: $base-font-size;
+  line-height: $line-height;
+  color: $text-dark;
+  background: $bg-light;
+  // > * + * {
+  //   margin-top: $space-md;
+  // }
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $ff-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+// Modular scale font sizes
+h1    { font-size: $font-scale-xl; }
+h2    { font-size: $font-scale-lg; }
+h3    { font-size: $font-scale-md; }
+h4    { font-size: $font-scale-sm; }
+small { font-size: $font-scale-xs; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    outline: none;
+  }
+  &:focus:not(:hover) {
+    outline: 5px dashed $tertiary;
+  }
+}
+
+pre, code {
+  font-size: 1rem;
+  font-family: $ff-mono;
+  color: $white;
+  background: $secondary;
+}
+
+pre {
+  margin-left: ($space-md * -1);
+  margin-right: ($space-md * -1);
+  padding: $space-md;
+  overflow-x: scroll;
+  @include mq-md {
+    border-radius: 2px;
+  }
+}
+
+code {
+  padding: ($space-xs / 4) ($space-xs / 2);
+  border-radius: 2px;
+}
+
+.main {
+  @include mq-md {
+    margin-left: $sidebar-width;
+  }
+  @include mq-lg {
+    margin-left: $sidebar-width-max;
+  }
+}
+
+.wrapper {
+  // margin-left: auto;
+  // margin-right: auto;
+  padding: $space-lg $space-md;
+  font-size: 1.125em;
+  line-height: $line-height-lg;
+  @include mq-md {
+    padding: $space-lg;
+    max-width: $wrapper-width;
+  }
+  @include mq-lg {
+    padding: $space-xl;
+    font-size: 1.25em;
+  }
+  & a {
+    // text-decoration: underline;
+    // text-decoration-skip: ink;
+    border-bottom: 1px solid;
+    &:hover, &:focus {
+      // text-decoration-style: wavy;
+      border-bottom-style: dashed;
+    }
+  }
+}
+
+.icon {
+  width: $space-xl;
+  height: $space-xl;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  &--line {
+    fill: none;
+  }
+}
