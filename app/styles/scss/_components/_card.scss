@@ -1,28 +1,37 @@
 .card-list {
-  // margin-left: ($space-md * -1);
+  margin-left: ($space-md * -1);
   margin-top: ($space-md * -1);
   list-style: none;
   display: flex;
-  flex-flow: wrap;
+  flex-flow: column wrap;
+  align-items: stretch;
+  // @include mq-lg {
+  //   margin-left: ($space-lg * -1);
+  //   margin-top: ($space-lg * -1);
+  // }
   @include mq-lg {
-    // margin-left: ($space-lg * -1);
-    margin-top: ($space-lg * -1);
+    flex-direction: row;
   }
   &__item {
-    // padding-left: $space-md;
+    padding-left: $space-md;
     padding-top: $space-md;
     display: flex;
     flex-flow: column;
     flex: 1 0 100%;
-    @include mq-lg {
-      // padding-left: $space-lg;
-      padding-top: $space-lg;
-      // flex: 1 0 50%;
+    // @include mq-lg {
+    //   padding-left: $space-lg;
+    //   padding-top: $space-lg;
+    //   // flex: 1 0 50%;
+    // }
+    &--half {
+      flex-basis: 33%;
+      // padding-left: $space-md;
     }
   }
 }
 
 .media {
+  height: 100%;
   padding: $space-sm;
   display: flex;
   align-items: center;
@@ -34,7 +43,11 @@
   @include mq-lg {
     padding: $space-lg;
   }
-  &__img {
+  &--card {
+    padding: 0;
+    flex-direction: column;
+  }
+  &__icon {
     margin-right: $space-sm;
     padding: $space-sm;
     width: $space-xl;
@@ -54,11 +67,60 @@
       padding: $space-md;
     }
   }
+  &__img {
+    position: relative;
+    width: 100%;
+    @include mq-md {
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($secondary, 0.3);
+        opacity: 0;
+        transition: opacity 0.2s;
+        will-change: opacity;
+      }
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    & > img {
+      width: 100%;
+    }
+    &:hover {
+      * > img {
+        filter: brightness();
+      }
+    }
+  }
   &__body {
+    width: 100%;
     font-size: 1rem;
     line-height: $line-height;
+    & > a {
+      text-decoration: none;
+    }
+    &--card {
+      height: 100%;
+      padding: $space-sm;
+      display: flex;
+      flex-direction: column;
+      @include mq-md {
+        padding: $space-md;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: $space-xs;
   }
   &__footer {
+    margin-top: auto;
+    margin-left: auto;
   }
   &__date {
     font-size: $font-scale-xs;
