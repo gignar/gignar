@@ -96,7 +96,6 @@ code {
     padding: $space-lg;
   }
   @include mq-lg {
-    padding: $space-xl;
     font-size: 1.25em;
   }
   & a {
