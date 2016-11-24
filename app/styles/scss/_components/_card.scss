@@ -32,7 +32,7 @@
 
 .media {
   height: 100%;
-  padding: $space-sm;
+  padding: $space-md;
   display: flex;
   align-items: center;
   background: #fff;
@@ -48,18 +48,17 @@
     flex-direction: column;
   }
   &__icon {
-    margin-right: $space-sm;
-    padding: $space-sm;
-    width: $space-xl;
-    height: $space-xl;
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    color: $white;
-    border-radius: 50%;
-    background: $tertiary;
+    display: none;
     @include mq-md {
+      display: flex;
       margin-right: $space-md;
+      width: $space-xl;
+      height: $space-xl;
+      align-items: center;
+      flex: 0 0 auto;
+      color: $white;
+      border-radius: 50%;
+      background: $tertiary;
     }
     @include mq-lg {
       width: ($space-xl * 1.5);
