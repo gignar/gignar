@@ -94,19 +94,20 @@ code {
   line-height: $line-height-lg;
   @include mq-md {
     padding: $space-lg;
-    max-width: $wrapper-width;
   }
   @include mq-lg {
     padding: $space-xl;
     font-size: 1.25em;
   }
   & a {
-    // text-decoration: underline;
-    // text-decoration-skip: ink;
-    border-bottom: 1px solid;
+    text-decoration: underline;
+    text-decoration-skip: ink;
+    transition: color 0.2s;
+    // border-bottom: 1px solid;
     &:hover, &:focus {
       // text-decoration-style: wavy;
-      border-bottom-style: dashed;
+      // border-bottom-style: dashed;
+      color: $primary;
     }
   }
 }
