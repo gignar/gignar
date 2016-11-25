@@ -59,7 +59,7 @@ pre, code {
   font-size: 1rem;
   font-family: $ff-mono;
   color: $white;
-  background: $secondary;
+  background: $grey-700;
 }
 
 pre {
@@ -87,34 +87,28 @@ code {
 }
 
 .wrapper {
-  // margin-left: auto;
-  // margin-right: auto;
   padding: $space-lg $space-md;
-  font-size: 1.125em;
+  // font-size: 1.125em;
   line-height: $line-height-lg;
   @include mq-md {
     padding: $space-lg;
   }
   @include mq-lg {
-    padding: $space-xl;
-    font-size: 1.25em;
+    padding: $space-lg $space-xxl;
+    // font-size: 1.25em;
   }
   & a {
     text-decoration: underline;
     text-decoration-skip: ink;
     transition: color 0.2s;
     // border-bottom: 1px solid;
-    &:hover, &:focus {
-      // text-decoration-style: wavy;
-      // border-bottom-style: dashed;
+    &:hover {
       color: $primary;
     }
   }
 }
 
 .icon {
-  width: $space-xl;
-  height: $space-xl;
   width: 100%;
   height: 100%;
   fill: currentColor;
