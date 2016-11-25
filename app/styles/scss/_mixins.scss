@@ -16,6 +16,12 @@
   }
 }
 
+@mixin mq-xl {
+  @media (min-width: $mq-xl) {
+    @content;
+  }
+}
+
 @mixin center {
   display: flex;
   justify-content: center;
@@ -30,12 +36,6 @@
     left: -2.5%;
     width: 70%;
     height: 40%;
-    // background:
-    //   linear-gradient(
-    //     to right,
-    //     $primary,
-    //     transparent 98%
-    //   );
     background: $primary;
     z-index: -20;
     transform: rotate(-3deg);
@@ -47,12 +47,6 @@
     right: -2.5%;
     width: 55%;
     height: 35%;
-    // background:
-    //   linear-gradient(
-    //   to left,
-    //     $tertiary,
-    //     transparent 95%
-    //   );
     background: $tertiary;
     z-index: -10;
     transform: rotate(-2deg);
