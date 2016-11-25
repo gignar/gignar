@@ -5,10 +5,10 @@ $blue-700: hsl(210, 90, 21);
 $blue-400: hsl(210, 100, 50);
 $pink-400: hsl(325, 90, 50);
 $gold-400: hsl(45, 90, 45);
-$grey-100: hsl(220, 10, 80);
-$grey-400: hsl(220, 10, 50);
-$grey-700: hsl(220, 10, 20);
-$grey-900: hsl(220, 10, 10);
+$grey-100: hsl(210, 30, 80);
+$grey-400: hsl(210, 30, 50);
+$grey-700: hsl(210, 30, 23);
+$grey-900: hsl(210, 30, 10);
 
 $primary: $pink-400;
 $secondary: $blue-700;
@@ -39,14 +39,15 @@ $line-height-lg: 1.5;
 $mq-sm: 30em;
 $mq-md: 40em;
 $mq-lg: 70em;
+$mq-xl: 100em;
 
 $wrapper-width: 55rem;
 $space-xs: 0.5rem;
 $space-sm: 0.75rem;
 $space-md: 1rem;
 $space-lg: 1.5rem;
-$space-xl: 2.5rem;
-$space-xxl: 4rem;
+$space-xl: 2.25rem;
+$space-xxl: 3.5rem;
 
 $sidebar-width: 40%;
-$sidebar-width-max: 28rem;
+$sidebar-width-max: 27rem;
