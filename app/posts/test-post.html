@@ -41,10 +41,10 @@
     <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans:400,400i,700" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/website/styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
-    <header class="sidebar sidebar--slide space-md">
+    <header class="sidebar sidebar--slide space-md" id="js-sidebar">
       <h1 class="sidebar__title">Oliver James</h1>
       <p class="sidebar__content">Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.</p>
       <nav class="nav">
@@ -85,13 +85,13 @@
         </ul>
       </nav>
     </header>
-    <button class="sidebar-toggle">
+    <button class="sidebar-toggle" id="js-sidebar-button">
       <svg class="icon" width="32" height="32">
         <use xlink:href="/website/sprite.svg#menu"></use>
       </svg>
     </button>
     <main class="main" id="main">
-      <div class="wrapper space-md">
+      <div class="wrapper space-md" id="js-wrapper">
         <h1>How to create a Ken Burns hero image effect in CSS &amp; Javascript</h1>
 
         <figure class="callout">
@@ -111,11 +111,11 @@
 
         <p>I suggested we instead try using still images with a <a href="http://en.wikipedia.org/wiki/Ken_Burns_effect">Ken Burns</a> style pan and zoom animation using CSS. Using optimised jpegs allowed file sizes to stay manageable and CSS3 transforms gave a nice sense of motion without stressing the browser too much. As a bonus this even worked perfectly on mobile.</p>
 
-        <p>We deliberately chose stock imagery as we found that showing actual work on the frontpage of the previous site needed updating constantly to stop the page from looking stale. Using high quality stock imagery that subtly referred to some of Lick&#39;s clients (grass for Spurs, paint for Wilko etc).</p>
+        <p>We deliberately chose stock imagery as we found that showing actual work on the frontpage of the previous site needed updating constantly to stop the page from looking stale. Using high quality stock photos that subtly referred to some of Lick&#39;s clients (grass for Spurs, paint for Wilko etc).</p>
 
         <h2>The code</h2>
 
-        <p>The basic idea here is to absolutely position a &#39;stack&#39; of images within a container, animate the image to zoom in and move across, then fade out the top image and move it to the bottom of the stack and repeat.</p>
+        <p>The idea is to absolutely position a &#39;stack&#39; of images within a container, animate the image to zoom in and move across, then fade out the top image and move it to the bottom of the stack, then repeat.</p>
 
         <h3>HTML</h3>
 
@@ -220,9 +220,11 @@ window.setInterval(kenBurns, 6000);</code></pre></div>
     </main>
     <script>
       function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarButton = document.querySelector('.sidebar-toggle');
+        const wrapper = document.querySelector('#js-wrapper')
+        const sidebar = document.querySelector('#js-sidebar');
+        const sidebarButton = document.querySelector('#js-sidebar-button');
         sidebarButton.addEventListener('click', () => sidebar.classList.toggle('js-sidebar--open'));
+        wrapper.addEventListener('click', () => sidebar.classList.remove('js-sidebar--open'));
       }
       toggleSidebar();
     </script>
