@@ -13,11 +13,11 @@
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-shadow: 0 2px 2px rgba($grey-900, 0.4), 0 2px 5px 0 rgba($grey-900, 0.25);
+  @include shadow--y;
   &--slide {
     position: fixed;
     width: 80%;
-    box-shadow: 2px 0 2px rgba($grey-900, 0.4), 2px 0 5px 0 rgba($grey-900, 0.25);
+    @include shadow--x;
     transform: translateX(-101%);
     transition: transform 0.2s ease-out;
     z-index: 10;
@@ -31,7 +31,7 @@
     padding: $space-lg;
     font-size: 1em;
     text-align: left;
-    box-shadow: 2px 0 2px rgba($grey-700, 0.5), 2px 0 5px 0 rgba($grey-700, 0.3);
+    @include shadow--x;
   }
   @include mq-lg {
     padding: $space-xl;
@@ -99,10 +99,10 @@
   color: $white;
   border: none;
   border-radius: 2px;
-  box-shadow: 0 1px 1px rgba($grey-900, 0.4), 0 2px 5px 0 rgba($grey-900, 0.25);
   z-index: 100;
   -webkit-tap-highlight-color: transparent; // Disable mobile tap outline
   transition: all 0.1s;
+  @include shadow--x;
   @include mq-md {
     display: none;
   }
