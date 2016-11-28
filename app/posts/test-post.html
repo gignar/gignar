@@ -41,55 +41,57 @@
     <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans:400,400i,700" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/website/styles/main.css">
   </head>
   <body>
-    <header class="sidebar sidebar--slide space-md" id="js-sidebar">
-      <h1 class="sidebar__title">Oliver James</h1>
-      <p class="sidebar__content">Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.</p>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link" href="/about.html">About</a></li>
-          <li class="nav__item">
-            <a class="nav__link" href="/blog.html">Blog</a></li>
-          <li class="nav__item">
-            <a class="nav__link" href="/work.html">Work</a></li>
-          <li class="nav__item">
-            <a class="nav__link" href="/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <nav class="nav">
-        <ul class="nav__list nav__list--row">
-          <li class="nav__item">
-            <a class="nav__link--icon" href="https://twitter.com/_oliverjam">
-              <svg class="icon" width="32" height="32">
-                <use xlink:href="/website/sprite.svg#twitter"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link--icon" href="https://github.com/oliverjam">
-              <svg class="icon" width="32" height="32">
-                <use xlink:href="/website/sprite.svg#github"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link--icon" href="mailto:op@oliverjam.es">
-              <svg class="icon" width="32" height="32">
-                <use xlink:href="/website/sprite.svg#email"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <header>
+      <button class="sidebar-toggle" id="js-sidebar-button" aria-label="menu" aria-expanded="false">
+        <svg class="icon" width="32" height="32">
+          <use xlink:href="/website/sprite.svg#menu"></use>
+        </svg>
+      </button>
+      <div class="sidebar sidebar--slide space-md" id="js-sidebar" hidden>
+        <h1 class="sidebar__title">Oliver James</h1>
+        <p class="sidebar__content">Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.</p>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="/about.html">About</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/blog.html">Blog</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/work.html">Work</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="nav">
+          <ul class="nav__list nav__list--row">
+            <li class="nav__item">
+              <a class="nav__link--icon" href="https://twitter.com/_oliverjam">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/website/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link--icon" href="https://github.com/oliverjam">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/website/sprite.svg#github"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link--icon" href="mailto:op@oliverjam.es">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/website/sprite.svg#email"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <button class="sidebar-toggle" id="js-sidebar-button">
-      <svg class="icon" width="32" height="32">
-        <use xlink:href="/website/sprite.svg#menu"></use>
-      </svg>
-    </button>
     <main class="main" id="main">
       <div class="wrapper space-md" id="js-wrapper">
         <h1>How to create a Ken Burns hero image effect in CSS &amp; Javascript</h1>
@@ -218,13 +220,21 @@ window.setInterval(kenBurns, 6000);</code></pre></div>
 
         <p>The function is run by setting an interval. The time in milliseconds here determines how long each iteration of the function will last (and therefore how long each image will get to animate). This takes a little playing with to get the exact effect you&#39;re looking for.</p>
     </main>
+    <div class="sidebar__overlay" id="js-overlay"></div>
     <script>
       function toggleSidebar() {
-        const wrapper = document.querySelector('#js-wrapper')
-        const sidebar = document.querySelector('#js-sidebar');
-        const sidebarButton = document.querySelector('#js-sidebar-button');
-        sidebarButton.addEventListener('click', () => sidebar.classList.toggle('js-sidebar--open'));
-        wrapper.addEventListener('click', () => sidebar.classList.remove('js-sidebar--open'));
+        const overlay = document.getElementById('js-overlay');
+        const sidebarButton = document.getElementById('js-sidebar-button');
+        const sidebar = document.getElementById('js-sidebar');
+        sidebarButton.addEventListener('click', () => {
+          document.body.classList.toggle('js-sidebar--open');
+          const expanded = sidebarButton.getAttribute('aria-expanded') === 'true';
+          sidebarButton.setAttribute('aria-expanded', String(!expanded));
+          sidebar.hidden = !expanded;
+        });
+        overlay.addEventListener('click', () => {
+          document.body.classList.remove('js-sidebar--open');
+        });
       }
       toggleSidebar();
     </script>
