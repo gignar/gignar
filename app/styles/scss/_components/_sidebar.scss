@@ -1,7 +1,6 @@
 .sidebar {
-  height: 100%;
   min-height: 100vh;
-  padding: $space-xl;
+  padding: $space-lg;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -16,13 +15,18 @@
   @include shadow--y;
   &--slide {
     position: fixed;
-    width: 80%;
+    min-height: 100%;
+    width: 75%;
+    text-align: left;
     @include shadow--x;
     transform: translateX(-101%);
     transition: transform 0.2s ease-out;
     z-index: 10;
     @include mq-md {
       transform: translateX(0);
+    }
+    & .sidebar__title {
+      margin-left: 0;
     }
   }
   @include mq-md {
@@ -53,7 +57,6 @@
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    align-self: flex-start;
     font-size: $font-scale-lg;
     white-space: nowrap;
     text-shadow: 1px 1px 1px $grey-700;
