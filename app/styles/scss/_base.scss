@@ -71,7 +71,10 @@ code {
 }
 
 .wrapper {
-  padding: $space-lg $space-md;
+  padding-top: $space-xl;
+  padding-right: $space-md;
+  padding-bottom: $space-xxl;
+  padding-left: $space-md;
   // font-size: 1.125em;
   line-height: $line-height;
   @include mq-md {
