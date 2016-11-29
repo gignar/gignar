@@ -30,14 +30,9 @@
       display: block;
       width: $space-xl;
       height: $space-xl;
-      color: $white;
-      transition: color 0.2s;
       @include mq-lg {
         width: $space-xxl;
         height: $space-xxl;
-      }
-      &:hover {
-        color: $primary;
       }
     }
     @include mq-md {
