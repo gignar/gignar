@@ -1,19 +1,11 @@
-.quote {
+blockquote {
   position: relative;
   padding-left: $space-md;
   border-left: 10px solid $tertiary;
-  // &::before {
-  //   position: absolute;
-  //   content: '';
-  //   left: 0;
-  //   width: 10px;
-  //   height: 100%;
-  //   background: $tertiary;
-  //   transform: rotate(2deg);
-  // }
-  &__cite {
-    &::before {
-      content: '— ';
-    }
+}
+
+cite {
+  &::before {
+    content: '— ';
   }
 }
