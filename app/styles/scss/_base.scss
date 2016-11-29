@@ -1,22 +1,7 @@
-// * + * {
-//   margin-top: $space-md;
-// }
 ::selection {
   color: $white;
   background: $tertiary;
   text-shadow: none;
-}
-
-.space-md {
-  & > * + * {
-    margin-top: $line-height * 1em;
-  }
-}
-
-.space-lg {
-  & > * + * {
-    margin-top: $line-height * 2em;
-  }
 }
 
 body {
