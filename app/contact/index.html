@@ -123,6 +123,24 @@
         </section>
       </div>
     </main>
+    <div class="sidebar__overlay" id="js-overlay"></div>
+    <script>
+      function toggleSidebar() {
+        const overlay = document.getElementById('js-overlay');
+        const sidebarButton = document.getElementById('js-sidebar-button');
+        const sidebar = document.getElementById('js-sidebar');
+        sidebarButton.addEventListener('click', () => {
+          document.body.classList.toggle('js-sidebar--open');
+          const expanded = sidebarButton.getAttribute('aria-expanded') === 'true';
+          sidebarButton.setAttribute('aria-expanded', String(!expanded));
+          sidebar.hidden = !expanded;
+        });
+        overlay.addEventListener('click', () => {
+          document.body.classList.remove('js-sidebar--open');
+        });
+      }
+      toggleSidebar();
+    </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
