@@ -2,7 +2,7 @@
   & > * + * {
     margin-top: $line-height * 1em;
   }
-  & > h1 + p, h2 + p, h3 + p, h4 + p {
+  & > h2 + p, h3 + p, h4 + p {
     // Ensure the paragraph following a heading sits closer
     margin-top: $line-height * 0.5em;
   }
