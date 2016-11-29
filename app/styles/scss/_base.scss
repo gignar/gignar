@@ -29,8 +29,10 @@ small { font-size: $font-scale-xs; }
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s;
   &:hover {
     outline: none;
+    color: $primary;
   }
   &:focus:not(:hover) {
     outline: 5px dashed $tertiary;
@@ -71,7 +73,7 @@ code {
 .wrapper {
   padding: $space-lg $space-md;
   // font-size: 1.125em;
-  line-height: $line-height-lg;
+  line-height: $line-height;
   @include mq-md {
     padding: $space-lg;
   }
@@ -80,19 +82,18 @@ code {
     // font-size: 1.25em;
   }
   &--blog {
-
+    line-height: $line-height-lg;
     @include mq-lg {
       max-width: $wrapper-width;
       font-size: 1.125em;
     }
-  }
-  & a {
-    text-decoration: underline;
-    text-decoration-skip: ink;
-    transition: color 0.2s;
-    // border-bottom: 1px solid;
-    &:hover {
-      color: $primary;
+    & a {
+      text-decoration: underline;
+      text-decoration-skip: ink;
+      transition: color 0.2s;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
