@@ -52,7 +52,13 @@
     white-space: nowrap;
     text-shadow: 1px 1px 1px $grey-700;
     z-index: 10;
-    @include stripes;
+    // @include stripes;
+    &::before {
+      @include stripe($side: "left", $width: 70%, $height: 40%);
+    }
+    &::after {
+      @include stripe($side: "right", $width: 55%, $height: 35%, $color: #{$tertiary});
+    }
     @include mq-md {
       margin-left: 0;
     }
