@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Oliver James | Front-end Developer</title>
+    <title>Work | Oliver James - Front-end Developer</title>
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -44,91 +44,56 @@
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
-    <header class="sidebar js-sidebar--open space-md">
-      <span class="sidebar__title"><a href="/">Oliver James</a></span>
-      <p class="sidebar__content">Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.</p>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link" href="/about">About</a></li>
-          <li class="nav__item">
-            <a class="nav__link" href="/blog">Blog</a></li>
-          <li class="nav__item">
-            <a class="nav__link" href="/work">Work</a></li>
-          <li class="nav__item">
-            <a class="nav__link" href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-      <nav class="nav">
-        <ul class="nav__list nav__list--row">
-          <li class="nav__item">
-            <a class="nav__link--icon" href="https://twitter.com/_oliverjam">
-              <svg class="icon" width="32" height="32">
-                <use xlink:href="/sprite.svg#twitter"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link--icon" href="https://github.com/oliverjam">
-              <svg class="icon" width="32" height="32">
-                <use xlink:href="/sprite.svg#github"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link--icon" href="http://codepen.io/oliverjam/">
-              <svg class="icon" width="32" height="32">
-                <use xlink:href="/sprite.svg#codepen"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <header>
+      <button class="sidebar-toggle" id="js-sidebar-button" aria-label="menu" aria-expanded="false">
+        <svg class="icon" width="32" height="32">
+          <use xlink:href="/sprite.svg#menu"></use>
+        </svg>
+      </button>
+      <div class="sidebar sidebar--slide space-md" id="js-sidebar" hidden>
+        <span class="sidebar__title"><a href="/">Oliver James</a></span>
+        <p class="sidebar__content">Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.</p>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="/about">About</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/blog">Blog</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/work">Work</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="nav">
+          <ul class="nav__list nav__list--row">
+            <li class="nav__item">
+              <a class="nav__link--icon" href="https://twitter.com/_oliverjam">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link--icon" href="https://github.com/oliverjam">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/sprite.svg#github"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link--icon" href="mailto:op@oliverjam.es">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/sprite.svg#codepen"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main class="main" id="main">
       <div class="wrapper space-md" id="js-wrapper">
-        <h2>Recent Posts</h2>
-        <section id="recent-posts">
-          <ul class="card-list">
-            <li class="card-list__item">
-              <article class="media media--row">
-                <div class="media__icon">
-                  <svg class="icon icon--line" width="32" height="32">
-                    <use xlink:href="/sprite.svg#code"></use>
-                  </svg>
-                </div>
-                <div class="media__body">
-                  <h3 class="media__title">
-                    <a href="/blog/2016-10-21-ken-burns-hero-image-in-css-js">How to create a Ken Burns hero image effect in CSS &amp; Javascript</a>
-                  </h3>
-
-                  <p>Lick are a shopper marketing agency with a strong focus on creative design, which meant their site needed to be  visual-heavy. They wanted the top of the homepage to communicate this, whilst also subtly nodding to some of the big brands the agency works with.</p>
-                  <footer class="media__footer">
-                    <time class="media__date" datetime="2016-11-21">Nov 21, 2016</time>
-                  </footer>
-                </div>
-              </article>
-            </li>
-            <li class="card-list__item">
-              <article class="media media--row">
-                <div class="media__icon">
-                  <svg class="icon icon--line" width="32" height="32">
-                    <use xlink:href="/sprite.svg#book"></use>
-                  </svg>
-                </div>
-                <div class="media__body">
-                  <h3 class="media__title">
-                    <a href="/blog/2016-07-11-why-i-donate-tenth-income-charity">Why I donate 10% of my income to charity</a>
-                  </h3>
-                  <p>If it is in our power to prevent something bad from happening, without thereby sacrificing anything of comparable moral importance, then we ought, morally, to do it</p>
-                  <footer class="media__footer">
-                    <time class="media__date" datetime="2016-07-11">July 11, 2016</time>
-                  </footer>
-                </div>
-              </article>
-            </li>
-          </ul>
-        </section>
         <h2>Recent Projects</h2>
         <section id="recent-projects">
           <ul class="card-list">
@@ -184,6 +149,24 @@
         </section>
       </div>
     </main>
+    <div class="sidebar__overlay" id="js-overlay"></div>
+    <script>
+      function toggleSidebar() {
+        const overlay = document.getElementById('js-overlay');
+        const sidebarButton = document.getElementById('js-sidebar-button');
+        const sidebar = document.getElementById('js-sidebar');
+        sidebarButton.addEventListener('click', () => {
+          document.body.classList.toggle('js-sidebar--open');
+          const expanded = sidebarButton.getAttribute('aria-expanded') === 'true';
+          sidebarButton.setAttribute('aria-expanded', String(!expanded));
+          sidebar.hidden = !expanded;
+        });
+        overlay.addEventListener('click', () => {
+          document.body.classList.remove('js-sidebar--open');
+        });
+      }
+      toggleSidebar();
+    </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
