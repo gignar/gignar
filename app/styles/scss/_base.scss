@@ -110,3 +110,27 @@ code {
     fill: none;
   }
 }
+
+.sprite {
+  margin-top: $space-md;
+  margin-bottom: $space-md;
+  margin-left: auto;
+  margin-right: auto;
+  width: 256px;
+  height: 256px;
+  flex: 1 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate3D(0, 0, 0);
+  @include mq-lg {
+    margin-left: $space-md;
+  }
+  & > img {
+    max-width: inherit;
+    animation: slide 0.25s steps(3) infinite;
+  }
+}
+
+@keyframes slide {
+  to { transform: translateX(-100%); }
+}
