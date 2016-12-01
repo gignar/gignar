@@ -7,7 +7,7 @@ $pink-400: hsl(330, 85, 55);
 $gold-400: hsl(45, 90, 45);
 $grey-100: hsl(210, 25, 70);
 $grey-400: hsl(210, 25, 40);
-$grey-700: hsl(210, 25, 21);
+$grey-700: hsl(210, 25, 24);
 $grey-900: hsl(210, 25, 10);
 
 $primary: $pink-400;
@@ -30,7 +30,7 @@ $font-scale-md: ($base-font-size * $scale);
 $font-scale-lg: ($base-font-size * ($scale * $scale));
 $font-scale-xl: ($base-font-size * ($scale * $scale * $scale));
 $ff-sans: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
-$ff-serif: 'Bitter', 'Libre Baskerville', Baskerville, Georgia, serif;
+$ff-serif: 'Bitter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $ff-mono: 'Roboto Mono', monospace;
 $line-height-sm: 1.1;
 $line-height: 1.3;
