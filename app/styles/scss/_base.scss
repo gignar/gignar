@@ -111,9 +111,20 @@ code {
   }
 }
 
+.card {
+  padding: $space-md;
+  font-family: $ff-serif;
+  background: $white;
+  @include shadow--y;
+  @include mq-lg {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .sprite {
-  margin-top: $space-md;
-  margin-bottom: $space-md;
+  // margin-top: $space-md;
+  // margin-bottom: $space-md;
   margin-left: auto;
   margin-right: auto;
   width: 256px;
@@ -123,7 +134,7 @@ code {
   overflow: hidden;
   transform: translate3D(0, 0, 0);
   @include mq-lg {
-    margin-left: $space-md;
+    margin-right: $space-md;
   }
   & > img {
     max-width: inherit;
