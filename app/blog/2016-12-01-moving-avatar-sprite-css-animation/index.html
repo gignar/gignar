@@ -95,90 +95,85 @@
     <main class="main" id="main">
       <div class="wrapper wrapper--blog space-md" id="js-wrapper">
 
-        <h1>A readable guide to writing more readable content</h1>
+        <h1>Creating a flickering avatar using Primitive and CSS sprite animation</h1>
 
-        <figure class="callout">
-          <div class="callout__img">
-            <svg class="icon icon--line" width="32" height="32">
-              <use xlink:href="/sprite.svg#info"></use>
-            </svg>
-          </div>
-          <p>This was originally posted <a href="https://medium.com/@oliverjam/a-readable-guide-to-writing-more-readable-content-8e54e1b864ec">on Medium</a>.</p>
-        </figure>
+        <h2>Intro</h2>
 
-        <h2>Summary</h2>
+        <p>I just added a flickering faux-motion effect avatar to <a href="%22/about%22">my About page</a>. The technique behind it is fun (and requires relatively little code).</p>
 
-        <p>Writing informative articles for the web is not like writing for other mediums. People read differently online — they open lots of links at once and flick from tab to tab, scanning up and down each page to find the information they want as quickly as possible. The easier to read and absorb your writing is, the more people you will reach.</p>
+        <p><a href="%22https://github.com/fogleman/primitive%22">Primitive</a> came to my attention a while ago as a nice tool for creating vectorised images. I was enamoured with the flickering effect achieved by animating between multiple versions of the same photo (Primitive produces different versions each time it is run).</p>
 
-        <h2>Sentences and paragraphs</h2>
+        <h2>Animation</h2>
 
-        <h3>Line Length</h3>
+        <p>There are a few different ways to achieve this effect — the Primitive pencil example uses Javascript to repeatedly switch each image from <code>display: none</code> to <code>display: block</code> in order. I felt like this would be a perfect case to experiment with CSS sprite animation.</p>
 
-        <p>Limit your sentences to under 25 words. This limit is a compromise between easy reading and expressing complicated ideas. <a href="http://webcache.googleusercontent.com/search?q=cache:dGEifPIq0gIJ:prsay.prsa.org/2009/01/14/how-to-make-your-copy-more-readable-make-sentences-shorter/">Research suggests</a> readers understand 90% of a 14 word sentence, but only 10% of a 43 word sentence.</p>
+        <p>Sprite animation is similar to a flipbook: you create a &#39;sprite&#39; (a long image containing each frame of your animation) and then use CSS keyframes to animate along this image.</p>
 
-        <blockquote class="quote">
-          <p>More people fear snakes than full stops, so they recoil when a long sentence comes hissing across the page.</p>
-          <footer><cite class="quote__cite">Martin Cutts, Oxford Guide To Plain English.</cite></footer>
-        </blockquote>
+        <p>The tricks to get it working are putting the sprite in a container the size of a single frame (so only one frame is visible at a time), and using <code>steps()</code> as your <code>animation-timing-function</code>.</p>
 
+        <h2>The sprite</h2>
 
+        <p>I generated three different versions of the same image using the <a href="%22https://ondras.github.io/primitive.js/%22">Javascript fork of Primitive</a> and then stitched them together in Preview. This in itself was a bit of a hassle as you can&#39;t change the canvas size without also resizing the image. You need to select all, cut the image, adjust image size to 300% width, then re-paste the first image and move to the left edge. You can then cut and paste the next two images alongside the first to fill the remaining space.</p>
 
-        <p>People tend to scan websites rather than read the whole page in order. They only fully read <a href="https://www.nngroup.com/articles/how-little-do-users-read/">about 25%</a> of the text, so it’s important to get your meaning across quickly.</p>
+        <h2>Steps</h2>
 
-        <p>Following a long sentence requires more concentration, which means the reader has to hold several ideas in their head at once. This makes it harder to actually take in the meaning of a sentence.</p>
+        <p>By default keyframe animations tween between each frame to create smooth motion. In this case however this ruins the effect:</p>
 
-        <p>Shorter sentences also force you to be more concise as a writer. This helps you express clear ideas that everyone immediately understands.</p>
+        <p data-height="350" data-theme-id="26563" data-slug-hash="QGOaPd" data-default-tab="result" data-user="oliverjam" data-embed-version="2" data-pen-title="Sprite animation test" class="codepen">See the Pen <a href="http://codepen.io/oliverjam/pen/QGOaPd/">Sprite animation test</a> by Oliver Phillips (<a href="http://codepen.io/oliverjam">@oliverjam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-        <h3>Paragraph Length</h3>
+        <p>We want the animation to jump from frame to frame, giving the illusion of animation. The <code>steps()</code> function can be confusing (especially if you don&#39;t know that it takes an optional second value of &#39;start&#39; or &#39;end&#39;). <a href="%22https://designmodo.com/steps-css-animations/%22">This article</a> explains better than I could how it works, but for this particular purpose we can just set set the same number of steps as frames in our sprite.</p>
 
-        <p>This also applies to <a href="https://www.prsa.org/Intelligence/Tactics/Articles/view/10215/1078/Cut_it_down_Readers_skip_long_paragraphs">paragraph length</a>. Most paragraphs should have no more than three or four 25-word sentences. Each sentence should support the same point, so the paragraph argues for a single idea. If you find a paragraph growing longer than this, consider breaking it out into two separate points.
-        Breaking your content into smaller chunks also helps people scan the page for the relevant bits of information they need.</p>
+        <p data-height="350" data-theme-id="26563" data-slug-hash="rWpeWv" data-default-tab="result" data-user="oliverjam" data-embed-version="2" data-pen-title="Sprite animation test 2" class="codepen">See the Pen <a href="http://codepen.io/oliverjam/pen/rWpeWv/">Sprite animation test 2</a> by Oliver Phillips (<a href="http://codepen.io/oliverjam">@oliverjam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-        <p>Don’t be scared of very short paragraphs!</p>
+        <h2>The code</h2>
 
-        <h2>Language use</h2>
+        <p>Once you&#39;ve got your sprite you can start writing code. We need a container to hide the extra frames. One downside to this technique is that it requires a specific size to be set on the container — the size of a single frame of your sprite.</p>
 
-        <h3>Write in plain English</h3>
+        <div><pre><code class="language-HTML">&lt;div class=&quot;sprite&quot;&gt;
+  &lt;img class=&quot;sprite__img&quot; src&quot;sprite.png&quot; alt=&quot;An animated avatar of Oli&quot;&gt;
+&lt;/div&gt;</code></pre></div>
 
-        <p>Your writing should be suitable for everyone. Use simple alternatives to complex or formal words. Try ‘help’ instead of ‘assist’ and ‘about’ instead of ‘approximately’. If you need to use technical terms then do, just make sure you explain them the first time they appear.</p>
+        <div><pre><code class="language-CSS">.sprite {
+  width: 256px;
+  height: 256px;
+  overflow: hidden;
+}</code></pre></div>
 
-        <p>This even applies to highly educated readers. <a href="https://gds.blog.gov.uk/2014/02/17/guest-post-clarity-is-king-the-evidence-that-reveals-the-desperate-need-to-re-think-the-way-we-write/">The more educated a person is the simpler they prefer their text.</a></p>
+        <p>We then need to animate the image within the container. The below code will move the sprite its full length to the left every 0.3s, but in 3 discrete steps (moving 33% of its length each step). This means each frame of the sprite is displayed for 0.1s before jumping to the next one.</p>
 
-        <h3>Use direct language</h3>
+        <div><pre><code class="language-CSS">.sprite__img {
+  animation: flicker 0.25s steps(3) infinite;
+}
 
-        <p>Use concrete language to make your ideas easier to visualise.</p>
+@keyframes flicker {
+  to { transform: translateX(-100%); }
+}</code></pre></div>
 
-        <p>Write literally. Figurative writing can be harder to understand and often doesn’t say what you mean.</p>
+        <h2>Border-radius bug</h2>
 
-        <h3>Use the ‘active voice’</h3>
+        <p>I wanted my avatar to be circular rather than square, so I put <code>border-radius: 50%</code> on the containing <code>div</code>. This was fine until I added the animation, which apparently triggered a <a href="%22https://bugs.chromium.org/p/chromium/issues/detail?id=157218%22">long-standing bug in Chrome</a> causing animated children to overflow their containers (something to do with Chrome promoting the animated element to a new layer for performance).</p>
 
-        <p>The subject of your sentence should be performing the action. If the subject is sitting passively, unrelated to the verb, then you might be using the passive voice. An easy way to tell is to <a href="https://www.grammarly.com/blog/a-scary-easy-way-to-help-you-find-passive-voice/">try inserting “by zombies”</a> after the verb. If the result makes sense then you should re-work the sentence to use the active voice.</p>
+        <p>You can solve this by also promoting the parent element to a new layer with <code>transform: translate3D(0, 0, 0)</code>. So the final CSS looks like this:</p>
 
-        <p>The passive voice is okay to use in <a href="https://www.grammarly.com/blog/how-to-use-the-passive-voice-correctly-2/">certain situations</a>, like describing a general truth, or an action with an unknown subject, or for focusing attention on the object being acted upon. In most situations the active voice will be more appropriate.</p>
+        <div><pre><code class="language-CSS">.sprite {
+  width: 256px;
+  height: 256px;
+  overflow: hidden;
+  transform: translate3D(0, 0, 0)
+}
 
-        <h2>Page structure</h2>
+.sprite__img {
+  animation: flicker 0.25s steps(3) infinite;
+}
 
-        <h3 >Use subheadings</h3>
+@keyframes flicker {
+  to { transform: translateX(-100%); }
+}</code></pre></div>
 
-        <p>Dividing your content into subheadings lets readers scan the page to find what they need. As people tend to only read 25% of a page it’s good to give them obvious clues to the content of each section.</p>
-
-        <p>Use a subheading summarising the following content every few paragraphs. This also makes the page more inviting, as the reader never sees a long mass of text that they’ll have to work through to find what they want.</p>
-
-        <h3 >Summarise</h3>
-
-        <p>Make sure your reader knows at all times what your point is. Tell them what you’re going to say at the beginning, then say it, and finally recap what you just told them. You’re trying to get people to understand information — keeping them in suspense is not helpful here.</p>
-
-        <p>This structure can lead to boring writing (which will cause your reader to disengange), so make sure you fill the middle with interesting content.</p>
-
-        <h2 >Conclusion</h2>
-
-        <p>You’re not writing a beautiful novel. If you want people to stay on your article, find the information they need and actually take it all in, then you should:</p>
-
-        <ol>
-        <li>Write less</li>
-        <li>Write simple</li>
-        <li>Break up your content</li>
-        </ol>
+        <p>And here&#39;s the end result:</p>
+        <div class="sprite"><img class="sprite__img" src="/images/me-sprite.png" alt=""></div>
     </main>
     <div class="sidebar__overlay" id="js-overlay"></div>
     <script>
