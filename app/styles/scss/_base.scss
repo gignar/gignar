@@ -14,7 +14,6 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  color: $grey-400;
   font-family: $ff-serif;
   font-weight: 400;
   line-height: $line-height-sm;
@@ -116,15 +115,16 @@ code {
   font-family: $ff-serif;
   background: $white;
   @include shadow--y;
-  @include mq-lg {
-    display: flex;
-    align-items: center;
+  &--row {
+    @include mq-lg {
+      padding: $space-md;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
 .sprite {
-  // margin-top: $space-md;
-  // margin-bottom: $space-md;
   margin-left: auto;
   margin-right: auto;
   width: 256px;
@@ -133,10 +133,12 @@ code {
   border-radius: 50%;
   overflow: hidden;
   transform: translate3D(0, 0, 0);
-  @include mq-lg {
-    margin-right: $space-md;
+  &--card {
+    @include mq-lg {
+      margin-right: $space-md;
+    }
   }
-  & > img {
+  &__img {
     max-width: inherit;
     animation: slide 0.25s steps(3) infinite;
   }
