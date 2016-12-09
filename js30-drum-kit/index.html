@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><title>Javascript30 — Drum Kit</title><style>* {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: indigo;
+      max-height: 100vh;
+    }
+
+    .container {
+      max-width: 40em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .grid {
+      margin-left: -1rem;
+      margin-top: -1rem;
+      height: 100vh;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+    }
+
+    .grid>* {
+      margin-left: 1rem;
+      margin-top: 1rem;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 5rem;
+      -ms-flex: 0 0 5rem;
+      flex: 0 0 5rem;
+      flex: 0 0 calc(5rem + 7vw);
+      height: 5em;
+      height: calc(5rem + 7vw);
+    }
+
+    .btn {
+      position: relative;
+      font-size: 2em;
+      color: indigo;
+      background: fuchsia;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      -webkit-transition: -webkit-transform 0.05s;
+      transition: -webkit-transform 0.05s;
+      transition: transform 0.05s;
+      transition: transform 0.05s, -webkit-transform 0.05s;
+    }
+
+    .btn:focus {
+      outline: none;
+    }
+
+    .btn--active {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }</style><div class=container><div class=grid><button data-key=65 class=btn>a</button> <button data-key=83 class=btn>s</button> <button data-key=68 class=btn>d</button> <button data-key=70 class=btn>f</button> <button data-key=71 class=btn>g</button> <button data-key=72 class=btn>h</button> <button data-key=74 class=btn>j</button> <button data-key=75 class=btn>k</button> <button data-key=76 class=btn>l</button></div></div><audio data-key=65 src=sounds/clap.wav></audio><audio data-key=83 src=sounds/hihat.wav></audio><audio data-key=68 src=sounds/kick.wav></audio><audio data-key=70 src=sounds/openhat.wav></audio><audio data-key=71 src=sounds/boom.wav></audio><audio data-key=72 src=sounds/ride.wav></audio><audio data-key=74 src=sounds/snare.wav></audio><audio data-key=75 src=sounds/tom.wav></audio><audio data-key=76 src=sounds/tink.wav></audio><script>const buttons = document.querySelectorAll('.btn');
+
+    function buttonActive() {
+      this.classList.add('btn--active');
+    }
+
+    function buttonInactive(e) {
+      if (e.propertyName !== 'transform') return;
+      this.classList.remove('btn--active');
+    }
+
+    function playSound() {
+      const audio = document.querySelector(`audio[data-key="${this.dataset.key}"]`);
+      audio.currentTime = 0;
+      audio.play();
+    }
+
+    function clickButton(e) {
+      const button = document.querySelector(`.btn[data-key="${e.keyCode}"]`);
+      if (!button) return;
+      button.click();
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', buttonActive);
+      button.addEventListener('click', playSound);
+      button.addEventListener('transitionend', buttonInactive);
+    });
+    window.addEventListener('keydown', clickButton)</script>
