@@ -1,8 +1,139 @@
-<!doctype html><html lang=en><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=description content=""><meta name=viewport content="width=device-width,initial-scale=1"><title>Oliver James | Front-end Developer</title><meta name=msapplication-tap-highlight content=no><link rel=icon type=image/png href=/images/touch/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/touch/favicon-16x16.png sizes=16x16><link rel="shortcut icon" href=/images/touch/favicon.ico><link rel=manifest href=manifest.json><meta name=mobile-web-app-capable content=yes><meta name=application-name content="Web Starter Kit"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content="Web Starter Kit"><link rel=apple-touch-icon sizes=180x180 href=/images/touch/apple-touch-icon.png><link rel=mask-icon href=/images/touch/safari-pinned-tab.svg color=#fa3899><meta name=msapplication-config content=/images/touch/browserconfig.xml><meta name=theme-color content=#043252><link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans:400,400i,700" rel=stylesheet><link rel=stylesheet href=/styles/main.css><header><button class=sidebar-toggle id=js-sidebar-button aria-label=menu aria-expanded=false><svg class=icon width=32 height=32><use xlink:href=/sprite.svg#menu></use></svg></button><div class="sidebar sidebar--slide space-md" id=js-sidebar hidden><span class=sidebar__title><a href=/ >Oliver James</a></span><p class=sidebar__content>Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.<nav class=nav><ul class=nav__list><li class=nav__item><a class=nav__link href=/about>About</a><li class=nav__item><a class=nav__link href=/blog>Blog</a><li class=nav__item><a class=nav__link href=/work>Work</a><li class=nav__item><a class=nav__link href=/contact>Contact</a></ul></nav><nav class=nav><ul class="nav__list nav__list--row"><li class=nav__item><a class=nav__link--icon href=https://twitter.com/_oliverjam><svg class=icon width=32 height=32><use xlink:href=/sprite.svg#twitter></use></svg></a><li class=nav__item><a class=nav__link--icon href=https://github.com/oliverjam><svg class=icon width=32 height=32><use xlink:href=/sprite.svg#github></use></svg></a><li class=nav__item><a class=nav__link--icon href=mailto:op@oliverjam.es><svg class=icon width=32 height=32><use xlink:href=/sprite.svg#codepen></use></svg></a></ul></nav></div></header><main class=main id=main><div class="wrapper wrapper--blog space-md blog" id=js-wrapper><h1>How to create a Ken Burns hero image effect in CSS &amp; Javascript</h1><figure class=callout><div class=callout__img><svg class="icon icon--line" width=32 height=32><use xlink:href=/sprite.svg#info></use></svg></div><p>This is part of <a href=#>a series</a> covering each aspect of the website I built for Lick Creative this summer.</figure><p><a href=http://www.lickcreative.com>Lick</a> are a shopper marketing agency with a strong focus on creative design, which meant their site needed to be visual-heavy. They wanted the top of the homepage to communicate this, whilst also subtly nodding to some of the big brands the agency works with.<h2>The design process</h2><p>The first iteration of this hero area featured several looping videos, but we quickly ran into performance issues. There was no way to get multiple videos at a high enough quality to do justice to Lick&#39;s work without forcing users to download unfeasibly large files. We also struggled to provide a good user experience for mobile browsers that either refused to autoplay video or forced the video to display inline.<p>I suggested we instead try using still images with a <a href=http://en.wikipedia.org/wiki/Ken_Burns_effect>Ken Burns</a> style pan and zoom animation using CSS. Using optimised jpegs allowed file sizes to stay manageable and CSS3 transforms gave a nice sense of motion without stressing the browser too much. As a bonus this even worked perfectly on mobile.<p>We deliberately chose stock imagery as we found that showing actual work on the frontpage of the previous site needed updating constantly to stop the page from looking stale. Using high quality stock photos that subtly referred to some of Lick&#39;s clients (grass for Spurs, paint for Wilko etc).<h2>The code</h2><p>The idea is to absolutely position a &#39;stack&#39; of images within a container, animate the image to zoom in and move across, then fade out the top image and move it to the bottom of the stack, then repeat.<h3>HTML</h3><p>We need a full viewport container with some images.<div><pre><code class=language-markup>&lt;div class=&quot;hero&quot; id=&quot;js-hero&quot;&gt;
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oliver James | Front-end Developer</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/images/touch/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/touch/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" href="/images/touch/favicon.ico">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Web Starter Kit">
+    <!-- <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"> -->
+
+    <!-- Apple icons and add-to-homescreen config -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/touch/apple-touch-icon.png">
+    <link rel="mask-icon" href="/images/touch/safari-pinned-tab.svg" color="#fa3899">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <!-- <meta name="msapplication-TileColor" content="#043252"> -->
+    <meta name="msapplication-config" content="/images/touch/browserconfig.xml">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#043252">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans:400,400i,700" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/main.css">
+  </head>
+  <body>
+    <header>
+      <button class="sidebar-toggle" id="js-sidebar-button" aria-label="menu" aria-expanded="false">
+        <svg class="icon" width="32" height="32">
+          <use xlink:href="/sprite.svg#menu"></use>
+        </svg>
+      </button>
+      <div class="sidebar sidebar--slide space-md" id="js-sidebar" hidden>
+        <span class="sidebar__title"><a href="/">Oliver James</a></span>
+        <p class="sidebar__content">Oli designs and codes the front-end of the web. He enjoys semantic code and talking about himself in the third person.</p>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="/about">About</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/blog">Blog</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/work">Work</a></li>
+            <li class="nav__item">
+              <a class="nav__link" href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="nav">
+          <ul class="nav__list nav__list--row">
+            <li class="nav__item">
+              <a class="nav__link--icon" href="https://twitter.com/_oliverjam">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link--icon" href="https://github.com/oliverjam">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/sprite.svg#github"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link--icon" href="mailto:op@oliverjam.es">
+                <svg class="icon" width="32" height="32">
+                  <use xlink:href="/sprite.svg#codepen"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main" id="main">
+      <div class="wrapper wrapper--blog space-md blog" id="js-wrapper">
+        <h1>How to create a Ken Burns hero image effect in CSS &amp; Javascript</h1>
+
+        <figure class="callout">
+          <div class="callout__img">
+            <svg class="icon icon--line" width="32" height="32">
+              <use xlink:href="/sprite.svg#info"></use>
+            </svg>
+          </div>
+          <p>This is part of <a href="#">a series</a> covering each aspect of the website I built for Lick Creative this summer.</p>
+        </figure>
+
+        <p><a href="http://www.lickcreative.com">Lick</a> are a shopper marketing agency with a strong focus on creative design, which meant their site needed to be  visual-heavy. They wanted the top of the homepage to communicate this, whilst also subtly nodding to some of the big brands the agency works with.</p>
+
+        <h2>The design process</h2>
+
+        <p>The first iteration of this hero area featured several looping videos, but we quickly ran into performance issues. There was no way to get multiple videos at a high enough quality to do justice to Lick&#39;s work without forcing users to download unfeasibly large files. We also struggled to provide a good user experience for mobile browsers that either refused to autoplay video or forced the video to display inline.</p>
+
+        <p>I suggested we instead try using still images with a <a href="http://en.wikipedia.org/wiki/Ken_Burns_effect">Ken Burns</a> style pan and zoom animation using CSS. Using optimised jpegs allowed file sizes to stay manageable and CSS3 transforms gave a nice sense of motion without stressing the browser too much. As a bonus this even worked perfectly on mobile.</p>
+
+        <p>We deliberately chose stock imagery as we found that showing actual work on the frontpage of the previous site needed updating constantly to stop the page from looking stale. Using high quality stock photos that subtly referred to some of Lick&#39;s clients (grass for Spurs, paint for Wilko etc).</p>
+
+        <h2>The code</h2>
+
+        <p>The idea is to absolutely position a &#39;stack&#39; of images within a container, animate the image to zoom in and move across, then fade out the top image and move it to the bottom of the stack, then repeat.</p>
+
+        <h3>HTML</h3>
+
+        <p>We need a full viewport container with some images.</p>
+
+        <div><pre><code class="language-markup">&lt;div class=&quot;hero&quot; id=&quot;js-hero&quot;&gt;
   &lt;img class=&quot;hero__image js-animating&quot; src=&quot;image1.jpg&quot;&gt;
   &lt;img class=&quot;hero__image&quot; src=&quot;image2.jpg&quot;&gt;
   &lt;img class=&quot;hero__image&quot; src=&quot;image3.jpg&quot;&gt;
-&lt;/div&gt;</code></pre></div><p>The <code>js-hero</code> ID will be used to target the container later. The <code>js-animating</code> class will be used to apply the CSS animations. The first image starts with this class applied to ensure it animates as soon as it loads, without waiting for the javascript to download and execute. This also provides a graceful degradation for users without javascript — they still see a single image animate.<h3>CSS</h3><div><pre><code class=language-CSS>.hero {
+&lt;/div&gt;</code></pre></div>
+
+        <p>The <code>js-hero</code> ID will be used to target the container later. The <code>js-animating</code> class will be used to apply the CSS animations. The first image starts with this class applied to ensure it animates as soon as it loads, without waiting for the javascript to download and execute. This also provides a graceful degradation for users without javascript — they still see a single image animate.</p>
+
+        <h3>CSS</h3>
+
+        <div><pre><code class="language-CSS">.hero {
   position: relative;
   min-height: 600px;
   min-height: 100vh;
@@ -24,7 +155,19 @@
 
 .hero__image:nth-child(3n) {
   transform-origin: bottom right;
-}</code></pre></div><p>The container is set to be at least as tall as the viewport (with a fallback for browsers that <a href="http://caniuse.com/#feat=viewport-units">don&#39;t support viewport units</a>), and has its overflow hidden so the images within don&#39;t spill out when zoomed by the animation.<p>The images are positioned absolutely within the container with a minimum width and height of 100%, ensuring they fill the container at any aspect ratio. This means the image will crop when the window is resized, so consider using the <a href=https://developer.mozilla.org/en/docs/Web/HTML/Element/picture>picture element</a> to specify different image files at different window widths.<p>Each image has a different corner set as its transform-origin. This is so we can apply the same CSS animation later on but have each image look as if it&#39;s moving in a different direction.<p>We also set the opacity to 0, allowing our animation to fade the pictures in, and we tell the browser to expect these elements to change opacity and transform (using the new <a href=https://developer.mozilla.org/en/docs/Web/CSS/will-change>will-change</a> property). This can help with performance and is an official version of the old transform3d hack to force GPU rendering.<h3 id=toc_5>Animation</h3><div><pre><code class=language-css>.js-animating {
+}</code></pre></div>
+
+        <p>The container is set to be at least as tall as the viewport (with a fallback for browsers that <a href="http://caniuse.com/#feat=viewport-units">don&#39;t support viewport units</a>), and has its overflow hidden so the images within don&#39;t spill out when zoomed by the animation.</p>
+
+        <p>The images are positioned absolutely within the container with a minimum width and height of 100%, ensuring they fill the container at any aspect ratio. This means the image will crop when the window is resized, so consider using the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/picture">picture element</a> to specify different image files at different window widths.</p>
+
+        <p>Each image has a different corner set as its transform-origin. This is so we can apply the same CSS animation later on but have each image look as if it&#39;s moving in a different direction.</p>
+
+        <p>We also set the opacity to 0, allowing our animation to fade the pictures in, and we tell the browser to expect these elements to change opacity and transform (using the new <a href="https://developer.mozilla.org/en/docs/Web/CSS/will-change">will-change</a> property). This can help with performance and is an official version of the old transform3d hack to force GPU rendering.</p>
+
+        <h3 id="toc_5">Animation</h3>
+
+        <div><pre><code class="language-css">.js-animating {
   animation: fade 3s forwards, zoom 15s linear forwards;
 }
 
@@ -38,7 +181,17 @@
 
 @keyframes zoom {
   100% { transform: scale(1.2); }
-}</code></pre></div><p>Here we describe two animations, &#39;fade&#39; and &#39;zoom&#39;. The first will fade an image in and the second will increase an image to 120% of its original size.<p>The <code>js-animating</code> class sets both of these animations (using the <a href=https://css-tricks.com/snippets/css/keyframe-animation-syntax/ >animation shorthand</a>). The fade is relatively short, as we want the new image to fade in and be visible for most of the animation, whilst the zoom is long so the image keeps slowly moving throughout.<p>Zoom has its <code>animation-timing-function</code> set to linear as I found any easing here looks strange (Ken Burns effects tend to have a consistent pan speed). Finally both have their <code>animation-direction</code> set to forwards to ensure they stay in their final frame state (rather than snapping back to how they started).<h3>Javascript</h3><div><pre><code class=language-javascript>const hero = document.getElementById(&#39;js-hero&#39;);
+}</code></pre></div>
+
+        <p>Here we describe two animations, &#39;fade&#39; and &#39;zoom&#39;. The first will fade an image in and the second will increase an image to 120% of its original size.</p>
+
+        <p>The <code>js-animating</code> class sets both of these animations (using the <a href="https://css-tricks.com/snippets/css/keyframe-animation-syntax/">animation shorthand</a>). The fade is relatively short, as we want the new image to fade in and be visible for most of the animation, whilst the zoom is long so the image keeps slowly moving throughout.</p>
+
+        <p>Zoom has its <code>animation-timing-function</code> set to linear as I found any easing here looks strange (Ken Burns effects tend to have a consistent pan speed). Finally both have their <code>animation-direction</code> set to forwards to ensure they stay in their final frame state (rather than snapping back to how they started).</p>
+
+        <h3>Javascript</h3>
+
+        <div><pre><code class="language-javascript">const hero = document.getElementById(&#39;js-hero&#39;);
 const heroImages = hero.querySelectorAll(&#39;.hero__image&#39;);
 const numberOfImages = heroImages.length;
 let i = 1;
@@ -51,7 +204,25 @@ function kenBurns() {
   if (i &gt; 1) heroImages[i - 2].classList.remove(&quot;js-animating&quot;);
   i++;
 }
-window.setInterval(kenBurns, 6000);</code></pre></div><p>This is where the magic happens. We first select our container, then our nodelist of images. We also need the total number of images, <code>numberOfImages</code> and a counter variable <code>i</code>, which is initially 1.<p>The <code>kenBurns()</code> function does the actual work. It checks whether the counter is equal to the total number of images, and resets the counter to zero if so. This is so the first image is shown again after the loop has finished.<p>The function then adds the <code>js-animating</code> class to the second image (at index 1 in the nodelist). We then need to make sure the animating class is removed from not the previous image but the one before that. Otherwise we wouldn&#39;t get the nice fade out to the next image.<p>The next three lines of code make this happen — when the counter is at zero <code>js-animating</code> is removed from the second last image in the stack, which lets the final image fade out as the first image fades back in. When the counter is equal to one the animating class is removed from the final image in the stack, and for any other value of the counter the class is removed from the image before the previous one.<p>(I&#39;m aware this logic is convoluted, but I can&#39;t think of a way of improving on this. As long as it works…)<p>We then increment the counter variable by one so that the next image is shown each time the functin runs.<p>The function is run by setting an interval. The time in milliseconds here determines how long each iteration of the function will last (and therefore how long each image will get to animate). This takes a little playing with to get the exact effect you&#39;re looking for.</div></main><div class=sidebar__overlay id=js-overlay></div><script>function toggleSidebar() {
+window.setInterval(kenBurns, 6000);</code></pre></div>
+
+        <p>This is where the magic happens. We first select our container, then our nodelist of images. We also need the total number of images, <code>numberOfImages</code> and a counter variable <code>i</code>, which is initially 1.</p>
+
+        <p>The <code>kenBurns()</code> function does the actual work. It checks whether the counter is equal to the total number of images, and resets the counter to zero if so. This is so the first image is shown again after the loop has finished.</p>
+
+        <p>The function then adds the <code>js-animating</code> class to the second image (at index 1 in the nodelist). We then need to make sure the animating class is removed from not the previous image but the one before that. Otherwise we wouldn&#39;t get the nice fade out to the next image.</p>
+
+        <p>The next three lines of code make this happen — when the counter is at zero <code>js-animating</code> is removed from the second last image in the stack, which lets the final image fade out as the first image fades back in. When the counter is equal to one the animating class is removed from the final image in the stack, and for any other value of the counter the class is removed from the image before the previous one.</p>
+
+        <p>(I&#39;m aware this logic is convoluted, but I can&#39;t think of a way of improving on this. As long as it works…)</p>
+
+        <p>We then increment the counter variable by one so that the next image is shown each time the functin runs.</p>
+
+        <p>The function is run by setting an interval. The time in milliseconds here determines how long each iteration of the function will last (and therefore how long each image will get to animate). This takes a little playing with to get the exact effect you&#39;re looking for.</p>
+    </main>
+    <div class="sidebar__overlay" id="js-overlay"></div>
+    <script>
+      function toggleSidebar() {
         const overlay = document.getElementById('js-overlay');
         const sidebarButton = document.getElementById('js-sidebar-button');
         const sidebar = document.getElementById('js-sidebar');
@@ -65,9 +236,17 @@ window.setInterval(kenBurns, 6000);</code></pre></div><p>This is where the magic
           document.body.classList.remove('js-sidebar--open');
         });
       }
-      toggleSidebar();</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      toggleSidebar();
+    </script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-XXXXX-X', 'auto');
-      ga('send', 'pageview');</script>
+      ga('send', 'pageview');
+    </script>
+    <!-- Built with love using Web Starter Kit -->
+  </body>
+</html>
