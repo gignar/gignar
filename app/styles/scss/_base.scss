@@ -84,6 +84,14 @@ code {
     padding: $space-lg $space-xxl;
     // font-size: 1.25em;
   }
+  & p > a {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+    transition: color 0.2s;
+    &:hover {
+      text-decoration: none;
+    }
+  }
   &--blog {
     line-height: $line-height-lg;
     @include mq-lg {
@@ -98,6 +106,15 @@ code {
         text-decoration: none;
       }
     }
+  }
+}
+
+.link--underline {
+  text-decoration: underline;
+  text-decoration-skip: ink;
+  transition: color 0.2s;
+  &:hover {
+    text-decoration: none;
   }
 }
 
